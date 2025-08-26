@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import config
 
 
 class Ui_MainWindow(object):
@@ -49,7 +50,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.frame_2)
         self.label_4.setGeometry(QtCore.QRect(20, 16, 32, 32))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Desktop/aa-120x120.webp"))
+        self.label_4.setPixmap(QtGui.QPixmap(config.LOGO_PATH))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
 
@@ -64,21 +65,21 @@ class Ui_MainWindow(object):
         # Only the three navigation icons on the right
         self.user_right = QtWidgets.QLabel(self.rightIcons)
         self.user_right.setText("")
-        self.user_right.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/user.png"))
+        self.user_right.setPixmap(QtGui.QPixmap(config.USER_ICON_PATH))
         self.user_right.setScaledContents(True)
         self.user_right.setMinimumSize(QtCore.QSize(32, 32))
         self.user_right.setMaximumSize(QtCore.QSize(32, 32))
         self.rightIconsLayout.addWidget(self.user_right)
         self.report_right = QtWidgets.QLabel(self.rightIcons)
         self.report_right.setText("")
-        self.report_right.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/report.png"))
+        self.report_right.setPixmap(QtGui.QPixmap(config.REPORT_ICON_PATH))
         self.report_right.setScaledContents(True)
         self.report_right.setMinimumSize(QtCore.QSize(32, 32))
         self.report_right.setMaximumSize(QtCore.QSize(32, 32))
         self.rightIconsLayout.addWidget(self.report_right)
         self.settings_right = QtWidgets.QLabel(self.rightIcons)
         self.settings_right.setText("")
-        self.settings_right.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/settings.png"))
+        self.settings_right.setPixmap(QtGui.QPixmap(config.SETTINGS_ICON_PATH))
         self.settings_right.setScaledContents(True)
         self.settings_right.setMinimumSize(QtCore.QSize(32, 32))
         self.settings_right.setMaximumSize(QtCore.QSize(32, 32))

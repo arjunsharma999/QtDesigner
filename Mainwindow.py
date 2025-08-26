@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import config
 
 
 class Ui_MainWindow(object):
@@ -33,7 +34,7 @@ class Ui_MainWindow(object):
         self.label.setMinimumSize(QtCore.QSize(32, 32))
         self.label.setMaximumSize(QtCore.QSize(32, 32))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Desktop/aa-120x120.webp"))
+        self.label.setPixmap(QtGui.QPixmap(config.LOGO_PATH))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.lineEdit = QtWidgets.QLineEdit(self.widget_2)
@@ -45,7 +46,7 @@ class Ui_MainWindow(object):
         self.label_5 = QtWidgets.QLabel(self.widget_2)
         self.label_5.setGeometry(QtCore.QRect(70, 460, 51, 41))
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/left-arrow (1).png"))
+        self.label_5.setPixmap(QtGui.QPixmap(config.BACK_ICON_PATH))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.widget_2)
@@ -144,7 +145,7 @@ class Ui_MainWindow(object):
         # Right-side navigation icons
         self.label_3 = QtWidgets.QLabel(self.widget1)
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/user.png"))
+        self.label_3.setPixmap(QtGui.QPixmap(config.USER_ICON_PATH))
         self.label_3.setScaledContents(True)
         self.label_3.setMinimumSize(QtCore.QSize(32, 32))
         self.label_3.setMaximumSize(QtCore.QSize(32, 32))
@@ -152,7 +153,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.label_3)
         self.label_4 = QtWidgets.QLabel(self.widget1)
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/report.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(config.REPORT_ICON_PATH))
         self.label_4.setScaledContents(True)
         self.label_4.setMinimumSize(QtCore.QSize(32, 32))
         self.label_4.setMaximumSize(QtCore.QSize(32, 32))
@@ -160,7 +161,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.label_4)
         self.label_2 = QtWidgets.QLabel(self.widget1)
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/settings.png"))
+        self.label_2.setPixmap(QtGui.QPixmap(config.SETTINGS_ICON_PATH))
         self.label_2.setScaledContents(True)
         self.label_2.setMinimumSize(QtCore.QSize(32, 32))
         self.label_2.setMaximumSize(QtCore.QSize(32, 32))

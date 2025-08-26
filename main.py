@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import sys
 
 # Import the two Designer-generated UI classes with aliases to avoid name clash
@@ -24,8 +24,23 @@ class HomeWindow(QtWidgets.QMainWindow):
     def _on_home_clicked(self, event):
         if self._main_page is None:
             self._main_page = MainPageWindow()
-        self._main_page.show()
-        self.close()
+        self._fade_to_window(self._main_page)
+
+    def _fade_to_window(self, next_window: QtWidgets.QMainWindow):
+        next_window.setWindowOpacity(0.0)
+        next_window.show()
+        animation = QtCore.QPropertyAnimation(next_window, b"windowOpacity")
+        animation.setDuration(300)
+        animation.setStartValue(0.0)
+        animation.setEndValue(1.0)
+        animation.setEasingCurve(QtCore.QEasingCurve.InOutQuad)
+        # Keep a reference to prevent GC
+        next_window._fade_animation = animation
+        def on_finished():
+            self.close()
+            next_window._fade_animation = None
+        animation.finished.connect(on_finished)
+        animation.start()
 
 
 class MainPageWindow(QtWidgets.QMainWindow):
@@ -42,8 +57,23 @@ class MainPageWindow(QtWidgets.QMainWindow):
     def _on_back_clicked(self, event):
         if self._home_page is None:
             self._home_page = HomeWindow()
-        self._home_page.show()
-        self.close()
+        self._fade_to_window(self._home_page)
+
+    def _fade_to_window(self, next_window: QtWidgets.QMainWindow):
+        next_window.setWindowOpacity(0.0)
+        next_window.show()
+        animation = QtCore.QPropertyAnimation(next_window, b"windowOpacity")
+        animation.setDuration(300)
+        animation.setStartValue(0.0)
+        animation.setEndValue(1.0)
+        animation.setEasingCurve(QtCore.QEasingCurve.InOutQuad)
+        # Keep a reference to prevent GC
+        next_window._fade_animation = animation
+        def on_finished():
+            self.close()
+            next_window._fade_animation = None
+        animation.finished.connect(on_finished)
+        animation.start()
 
 
 def main():
