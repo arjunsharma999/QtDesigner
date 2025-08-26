@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1064</width>
-    <height>902</height>
+    <width>1024</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,8 +26,8 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>130</y>
+      <x>0</x>
+      <y>0</y>
       <width>1024</width>
       <height>600</height>
      </rect>
@@ -164,8 +164,8 @@ border-radius: 14px;</string>
        <rect>
         <x>20</x>
         <y>10</y>
-        <width>91</width>
-        <height>51</height>
+        <width>140</width>
+        <height>80</height>
        </rect>
       </property>
       <property name="text">
