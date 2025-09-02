@@ -222,7 +222,7 @@ color:black;</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:/Users/Desktop/Downloads/laboratory-centrifuge-color-icon-isolated-illustration-vector-removebg-preview.png</pixmap>
+       <pixmap>images/laboratory-centrifuge-color-icon-isolated-illustration-vector-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>

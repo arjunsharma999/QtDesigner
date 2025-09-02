@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.frame_2)
         self.label_6.setGeometry(QtCore.QRect(590, 140, 251, 261))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/laboratory-centrifuge-color-icon-isolated-illustration-vector-removebg-preview.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("images/laboratory-centrifuge-color-icon-isolated-illustration-vector-removebg-preview.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         MainWindow.setCentralWidget(self.centralwidget)
