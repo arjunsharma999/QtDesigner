@@ -35,8 +35,8 @@
     <widget class="QWidget" name="widget_2" native="true">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>30</y>
+       <x>45</x>
+       <y>32</y>
        <width>931</width>
        <height>531</height>
       </rect>
@@ -54,10 +54,10 @@ border-radius: 40px;</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
+        <x>40</x>
+        <y>30</y>
         <width>81</width>
-        <height>51</height>
+        <height>50</height>
        </rect>
       </property>
       <property name="text">
@@ -80,20 +80,10 @@ border-radius: 40px;</string>
        </rect>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>470</y>
-        <width>104</width>
-        <height>71</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>50</x>
         <y>460</y>
         <width>51</width>
         <height>41</height>
@@ -291,56 +281,62 @@ font-family: Consolas;</string>
       <zorder>pushButton_3</zorder>
       <zorder>pushButton_4</zorder>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>790</x>
         <y>40</y>
-        <width>121</width>
+        <width>31</width>
         <height>31</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>C:/Users/Desktop/Downloads/user.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>C:/Users/Desktop/Downloads/report.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>C:/Users/Desktop/Downloads/settings.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/report.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>40</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/settings.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>40</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/user.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
    </widget>

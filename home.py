@@ -9,7 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import config
 
 
 class Ui_MainWindow(object):
@@ -26,7 +25,7 @@ class Ui_MainWindow(object):
         self.widget.setStyleSheet("background-color: #17AEAA;")
         self.widget.setObjectName("widget")
         self.frame_2 = QtWidgets.QFrame(self.widget)
-        self.frame_2.setGeometry(QtCore.QRect(40, 30, 931, 531))
+        self.frame_2.setGeometry(QtCore.QRect(45, 30, 931, 531))
         self.frame_2.setStyleSheet("border: 1px  ;\n"
 "border-radius: 40px; \n"
 "background-color: #FFF6ED;\n"
@@ -38,52 +37,22 @@ class Ui_MainWindow(object):
 "background-color: #17AEAA;\n"
 "border-radius: 14px")
         self.widget_3.setObjectName("widget_3")
-        self.textBrowser_2 = QtWidgets.QTextBrowser(self.widget_3)
-        self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 91, 31))
-        self.textBrowser_2.setObjectName("textBrowser_2")
+        self.label_7 = QtWidgets.QLabel(self.widget_3)
+        self.label_7.setGeometry(QtCore.QRect(20, 15, 61, 21))
+        self.label_7.setStyleSheet("font-size: 20px;\n"
+"color:white;")
+        self.label_7.setObjectName("label_7")
         self.widget_4 = QtWidgets.QWidget(self.frame_2)
         self.widget_4.setGeometry(QtCore.QRect(200, 310, 91, 51))
         self.widget_4.setStyleSheet("background-color: #17AEAA;\n"
 "border-radius: 14px;")
         self.widget_4.setObjectName("widget_4")
-        # Left logo (32x32)
         self.label_4 = QtWidgets.QLabel(self.frame_2)
-        self.label_4.setGeometry(QtCore.QRect(20, 16, 32, 32))
+        self.label_4.setGeometry(QtCore.QRect(40, 30, 81, 50))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap(config.LOGO_PATH))
+        self.label_4.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Desktop/aa-120x120.webp"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
-
-        # Right-aligned bar with three icons
-        self.rightIcons = QtWidgets.QWidget(self.frame_2)
-        self.rightIcons.setGeometry(QtCore.QRect(760, 16, 121, 32))
-        self.rightIcons.setObjectName("rightIcons")
-        self.rightIconsLayout = QtWidgets.QHBoxLayout(self.rightIcons)
-        self.rightIconsLayout.setContentsMargins(0, 0, 0, 0)
-        self.rightIconsLayout.setSpacing(8)
-        self.rightIconsLayout.setObjectName("rightIconsLayout")
-        # Only the three navigation icons on the right
-        self.user_right = QtWidgets.QLabel(self.rightIcons)
-        self.user_right.setText("")
-        self.user_right.setPixmap(QtGui.QPixmap(config.USER_ICON_PATH))
-        self.user_right.setScaledContents(True)
-        self.user_right.setMinimumSize(QtCore.QSize(32, 32))
-        self.user_right.setMaximumSize(QtCore.QSize(32, 32))
-        self.rightIconsLayout.addWidget(self.user_right)
-        self.report_right = QtWidgets.QLabel(self.rightIcons)
-        self.report_right.setText("")
-        self.report_right.setPixmap(QtGui.QPixmap(config.REPORT_ICON_PATH))
-        self.report_right.setScaledContents(True)
-        self.report_right.setMinimumSize(QtCore.QSize(32, 32))
-        self.report_right.setMaximumSize(QtCore.QSize(32, 32))
-        self.rightIconsLayout.addWidget(self.report_right)
-        self.settings_right = QtWidgets.QLabel(self.rightIcons)
-        self.settings_right.setText("")
-        self.settings_right.setPixmap(QtGui.QPixmap(config.SETTINGS_ICON_PATH))
-        self.settings_right.setScaledContents(True)
-        self.settings_right.setMinimumSize(QtCore.QSize(32, 32))
-        self.settings_right.setMaximumSize(QtCore.QSize(32, 32))
-        self.rightIconsLayout.addWidget(self.settings_right)
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.frame_2)
         self.dateTimeEdit.setGeometry(QtCore.QRect(720, 490, 171, 22))
         self.dateTimeEdit.setStyleSheet("color: rgb(0, 0, 0);\n"
@@ -94,6 +63,30 @@ class Ui_MainWindow(object):
         self.label_5.setStyleSheet("font-size:56px;\n"
 "color:black;")
         self.label_5.setObjectName("label_5")
+        self.label_2 = QtWidgets.QLabel(self.frame_2)
+        self.label_2.setGeometry(QtCore.QRect(830, 40, 31, 31))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("images/settings.png"))
+        self.label_2.setScaledContents(True)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.frame_2)
+        self.label_3.setGeometry(QtCore.QRect(750, 40, 31, 31))
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap("images/user.png"))
+        self.label_3.setScaledContents(True)
+        self.label_3.setObjectName("label_3")
+        self.label = QtWidgets.QLabel(self.frame_2)
+        self.label.setGeometry(QtCore.QRect(790, 40, 31, 31))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("images/report.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
+        self.label_6 = QtWidgets.QLabel(self.frame_2)
+        self.label_6.setGeometry(QtCore.QRect(590, 140, 251, 261))
+        self.label_6.setText("")
+        self.label_6.setPixmap(QtGui.QPixmap("C:/Users/Desktop/Downloads/laboratory-centrifuge-color-icon-isolated-illustration-vector-removebg-preview.png"))
+        self.label_6.setScaledContents(True)
+        self.label_6.setObjectName("label_6")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -102,9 +95,15 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.textBrowser_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">HOME</span></p></body></html>"))
+        self.label_7.setText(_translate("MainWindow", "Home"))
         self.label_5.setText(_translate("MainWindow", "Welcome Admin"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
