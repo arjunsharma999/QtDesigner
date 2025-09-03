@@ -1,8 +1,9 @@
 from PyQt5 import QtWidgets, QtCore
 import sys
-from home import Ui_MainWindow as Ui_Home
-from Mainwindow import Ui_MainWindow as Ui_MainPage
-from cal import Ui_Form as Ui_Cal
+from Pages.home import Ui_MainWindow as Ui_Home
+from Pages.Mainwindow import Ui_MainWindow as Ui_MainPage
+from Pages.cal import Ui_Form as Ui_Cal
+from Pages.Graph import GraphWindow
 
 class HomeWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -55,6 +56,11 @@ class MainPageWindow(QtWidgets.QMainWindow):
 
         self._home_page = None
         self._cal_page = None
+        self._graph_window = None
+
+        # Connect the Test button to open the real-time graph window
+        if hasattr(self.ui, "pushButton_2") and self.ui.pushButton_2 is not None:
+            self.ui.pushButton_2.clicked.connect(self._on_test_clicked)
 
     def _on_back_clicked(self, event):
         if self._home_page is None:
@@ -65,6 +71,11 @@ class MainPageWindow(QtWidgets.QMainWindow):
         if self._cal_page is None:
             self._cal_page = CalWindow()
         self._fade_to_window(self._cal_page)
+
+    def _on_test_clicked(self):
+        if self._graph_window is None:
+            self._graph_window = GraphWindow()
+        self._graph_window.show()
 
     def _fade_to_window(self, next_window: QtWidgets.QMainWindow):
         next_window.setWindowOpacity(0.0)
