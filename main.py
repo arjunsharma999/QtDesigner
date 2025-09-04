@@ -4,6 +4,7 @@ from Pages.home import Ui_MainWindow as Ui_Home
 from Pages.Mainwindow import Ui_MainWindow as Ui_MainPage
 from Pages.cal import Ui_Form as Ui_Cal
 from Pages.Graph import GraphWidget, SerialReader
+from GetData import GetData
 
 class HomeWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -88,8 +89,8 @@ class MainPageWindow(QtWidgets.QMainWindow):
             self._graph_widget.setGeometry(QtCore.QRect(100, 120, 800, 380))
         self._graph_widget.hide()
 
-        # Create reader and wire to graph
-        self._serial_reader = SerialReader(port="COM4", baudrate=115200, command="RAI01;", delay_seconds=0.1)
+        # Create reader and wire to graph using a single GetData instance
+        self._serial_reader = SerialReader(reader=GetData(), command="RAI01;", delay_seconds=0.1)
         self._serial_reader.new_value.connect(self._graph_widget.update_plot)
         self._serial_reader.error.connect(self._on_serial_error)
 

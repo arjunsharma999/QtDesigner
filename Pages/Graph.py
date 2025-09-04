@@ -63,22 +63,14 @@ class SerialReader(QThread):
     new_value = pyqtSignal(float)
     error = pyqtSignal(str)
 
-    def __init__(self, port: str = "COM4", baudrate: int = 115200, command: str = "RAI01;", delay_seconds: float = 0.1):
+    def __init__(self, reader: GetData, command: str = "RAI01;", delay_seconds: float = 0.1):
         super().__init__()
-        self._port = port
-        self._baudrate = baudrate
         self._command = command
         self._delay_seconds = delay_seconds  # Reduced default delay for faster updates
         self._running = False
-        self._reader = None  # type: GetData | None
+        self._reader = reader  # type: GetData | None
 
     def run(self):
-        try:
-            self._reader = GetData(port=self._port, baudrate=self._baudrate, timeout=0.1)  # Reduced timeout
-        except Exception as exc:  # Serial open failure
-            self.error.emit(f"Failed to open serial port {self._port}: {exc}")
-            return
-
         self._running = True
         consecutive_errors = 0
         max_consecutive_errors = 5
@@ -149,7 +141,7 @@ class SerialReader(QThread):
 
 
 class GraphWindow(QMainWindow):
-    def __init__(self, port: str = "COM4", baudrate: int = 115200, command: str = "RAI01;", delay_seconds: float = 0.1):
+    def __init__(self, command: str = "RAI01;", delay_seconds: float = 0.1):
         super().__init__()
         self.setWindowTitle("Real-time Pressure Graph")
         self.setGeometry(100, 100, 800, 600)  # Set initial size
@@ -157,8 +149,8 @@ class GraphWindow(QMainWindow):
         self.graph = GraphWidget(self)
         self.setCentralWidget(self.graph)
 
-        # Create reader with faster update rate
-        self._reader = SerialReader(port=port, baudrate=baudrate, command=command, delay_seconds=delay_seconds)
+        # Create reader with faster update rate, using a single GetData instance
+        self._reader = SerialReader(reader=GetData(), command=command, delay_seconds=delay_seconds)
         self._reader.new_value.connect(self.graph.update_plot)
         self._reader.error.connect(self._on_error)
         
@@ -212,7 +204,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     
     # Create window with faster update rate (10 times per second)
-    window = GraphWindow(port="COM4", baudrate=115200, command="RAI01;", delay_seconds=0.1)
+    window = GraphWindow(command="RAI01;", delay_seconds=0.1)
     window.show()
     
     sys.exit(app.exec_())

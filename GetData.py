@@ -29,7 +29,7 @@ class GetData:
 
 
 if __name__ == "__main__":
-    card = GetData(port="COM4")
+    card = GetData(port="COM")
     try:
         print("Fetching continuous data... Press Ctrl+C to stop.")
         card.read_continuous(command="RAI01;", delay=0.1)

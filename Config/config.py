@@ -27,3 +27,11 @@ USER_ICON_PATH = _image_path(USER_ICON)
 REPORT_ICON_PATH = _image_path(REPORT_ICON)
 SETTINGS_ICON_PATH = _image_path(SETTINGS_ICON)
 BACK_ICON_PATH = _image_path(BACK_ICON)
+
+# -------- Serial defaults (centralized) --------
+# Allow overriding via environment variables.
+DEFAULT_SERIAL_PORT = os.getenv("SERIAL_PORT", "COM4")
+DEFAULT_SERIAL_BAUDRATE = int(os.getenv("SERIAL_BAUDRATE", "115200"))
+DEFAULT_SERIAL_TIMEOUT = float(os.getenv("SERIAL_TIMEOUT", "0.1"))
+DEFAULT_SERIAL_COMMAND = os.getenv("SERIAL_COMMAND", "RAI01;")
+DEFAULT_SERIAL_DELAY_SECONDS = float(os.getenv("SERIAL_DELAY_SECONDS", "0.1"))
