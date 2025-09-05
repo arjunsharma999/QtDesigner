@@ -2,7 +2,7 @@ import serial
 import time
 
 class GetData:
-    def __init__(self, port='COM4', baudrate=115200, timeout=1):
+    def __init__(self, port='/dev/ttyUSB0', baudrate=115200, timeout=1):
         self.ser = serial.Serial(port, baudrate, timeout=timeout)
 
     def read_continuous(self, command="RAI01;", delay=1):
@@ -29,7 +29,7 @@ class GetData:
 
 
 if __name__ == "__main__":
-    card = GetData(port="COM")
+    card = GetData(port="/dev/ttyUSB0")
     try:
         print("Fetching continuous data... Press Ctrl+C to stop.")
         card.read_continuous(command="RAI01;", delay=0.1)

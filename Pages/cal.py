@@ -83,6 +83,16 @@ class Ui_Form(object):
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
 
+
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit_6.setGeometry(QtCore.QRect(380, 220, 180, 52))  # Adjust x,y to place it properly
+        self.lineEdit_6.setMinimumSize(QtCore.QSize(90, 46))
+        self.lineEdit_6.setStyleSheet("background-color: #D9D9D9;\n"
+        "border-radius: 18px;\n"
+        "font-size: 14px")
+        self.lineEdit_6.setObjectName("lineEdit_6")
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -91,10 +101,47 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.lineEdit_2.setText(_translate("Form", "              Batch No"))
         self.pushButton.setText(_translate("Form", "Next"))
-        self.lineEdit_3.setText(_translate("Form", "            Customer Id"))
+        self.lineEdit_3.setText(_translate("Form", "            Sensitivity"))
         self.lineEdit_4.setText(_translate("Form", "         Customer Name"))
         self.lineEdit_5.setText(_translate("Form", "             Paper gsm"))
+        self.lineEdit_6.setText(_translate("Form", "             Roll no"))
 
+
+
+    def save_to_db(self):
+        
+        customer_name = self.lineEdit_4.text()
+        customer_id = self.lineEdit_3.text()
+        batch_no = self.lineEdit_2.text()
+        paper_gsm = self.lineEdit_5.text()
+        roll_no = self.lineEdit_6.text()
+
+        try:
+                connection = mysql.connector.connect(
+                host="localhost",
+                user="root",       # change if needed
+                password="BeagleBone99",       # change if you set a password
+                database="JSR" # replace with your database name
+                )
+
+                if connection.is_connected():
+                        cursor = connection.cursor()
+                        sql = """INSERT INTO customer_data 
+                                (customer_id, customer_name, batch_no, paper_gsm, roll_no) 
+                                VALUES (%s, %s, %s, %s, %s)"""
+                        values = (customer_id, customer_name, batch_no, paper_gsm, roll_no)
+                        cursor.execute(sql, values)
+                        connection.commit()
+                        QtWidgets.QMessageBox.information(None, "Success", "Data inserted successfully!")
+
+        except Error as e:
+                QtWidgets.QMessageBox.warning(None, "Error", f"Database error: {e}")
+
+        finally:
+                if connection.is_connected():
+                        cursor.close()
+                        connection.close()
+  
 
 if __name__ == "__main__":
     import sys

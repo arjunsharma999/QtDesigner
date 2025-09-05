@@ -5,6 +5,8 @@ from Pages.Mainwindow import Ui_MainWindow as Ui_MainPage
 from Pages.cal import Ui_Form as Ui_Cal
 from Pages.Graph import GraphWidget, SerialReader
 from GetData import GetData
+from Middleware.Connect_db import get_connection
+from Pages.cal import Ui_Form
 
 class HomeWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -168,7 +170,6 @@ class CalWindow(QtWidgets.QMainWindow):
         if hasattr(self.ui, "label_5") and self.ui.label_5 is not None:
             self.ui.label_5.mousePressEvent = self._on_back_clicked
 
-        # Add this line to initialize the _home_page attribute
         self._home_page = None
 
         # Wire Next button to go to Review
@@ -185,7 +186,7 @@ class CalWindow(QtWidgets.QMainWindow):
             "paper_gsm": getattr(self.ui, "lineEdit_5", None).text() if hasattr(self.ui, "lineEdit_5") else "",
         }
 
-    def _on_next_clicked(self):
+    def _on_next_clicked(self, Ui_Form):
         data = self._collect_form_data()
         self._review_window = ReviewWindow(data, cal_window=self)
         self._fade_to_window(self._review_window)
@@ -274,6 +275,7 @@ class ReviewWindow(QtWidgets.QMainWindow):
         self.edit_btn.setStyleSheet("background-color: #FEC04D;\nborder-radius: 18px;\nfont-size: 20px;")
 
         self.test_btn = QtWidgets.QPushButton("Test", buttons)
+        self.pushButton.clicked.connect(self.save_to_db)
         self.test_btn.setMinimumSize(QtCore.QSize(120, 40))
         self.test_btn.setStyleSheet("background-color: #17AEAA;\ncolor: white;\nborder-radius: 18px;\nfont-size: 20px;")
 
@@ -330,6 +332,12 @@ class ReviewWindow(QtWidgets.QMainWindow):
 
 
 def main():
+    try:
+        conn = get_connection()
+        print("connected")
+    except Exception as e:
+        print(e)    
+        
     app = QtWidgets.QApplication(sys.argv)
     window = HomeWindow()
     window.show()
@@ -338,3 +346,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
